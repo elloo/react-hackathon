@@ -29,7 +29,8 @@ export default class Card extends Component {
         <div>
           <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
             <Front handleClick={this.handleClick}/>
-            <Back handleClick={this.handleClick} cardPic={this.props.img}/>
+            {/* <Back handleClick={this.handleClick} cardPic={this.props.img}/> */}
+            <Back handleClick={this.handleClick} cardPic={this.props}/>
           </ReactCardFlip>
         </div>
       )

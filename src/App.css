@@ -24,3 +24,8 @@
 h1{
   border: red 1px solid;
 }
+
+.cardPics{
+  width: 150px;
+  height: 150px;
+}

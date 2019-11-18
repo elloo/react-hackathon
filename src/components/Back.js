@@ -7,13 +7,14 @@ class Back extends Component {
     }
 
     randomNum = () => {
-        return Math.floor(Math.random() * 2)
+        return Math.floor(Math.random() * 9)
     }
 
     render() { 
         return (
             <div key="back">
-                <img src={this.props.cardPic} alt="Bull"/>
+                {console.log("------------------", this.props)}
+                <img className="cardPics" src={this.props.cardPic.cardPics[this.randomNum()]} alt="Bull"/>
                 This is the back of the card.
                 <button onClick={this.props.handleClick}>Click to flip</button>
             </div>
