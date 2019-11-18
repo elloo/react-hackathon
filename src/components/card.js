@@ -5,25 +5,33 @@ import Back from "./Back";
 
 
 export default class Card extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
         this.state = {
-        isFlipped: false
+        isFlipped: false,
       };
       this.handleClick = this.handleClick.bind(this);
     }
-   
-    handleClick(e) {
+ 
+    handleClick (e) {
       e.preventDefault();
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
    
+    // componentDidMount(){
+    //   randomNum = () => {
+    //     return Math.floor(Math.random() * 2)
+    //   }
+    // }
+
     render() {
       return (
-        <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-          <Front handleClick={this.handleClick}/>
-          <Back handleClick={this.handleClick} />
-        </ReactCardFlip>
+        <div>
+          <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+            <Front handleClick={this.handleClick}/>
+            <Back handleClick={this.handleClick} cardPic={this.props.img}/>
+          </ReactCardFlip>
+        </div>
       )
     }
   }
