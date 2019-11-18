@@ -21,8 +21,7 @@ class App extends Component {
         cardPics.splice(randNum, 1)
       }
     }
-    this.setState({cardPics: [...randArr]})
-    console.log(cardPics);
+    this.setState({cardPics: [...randArr]});
   }
 
   componentDidMount() {
@@ -32,9 +31,6 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        {/* {this.state.cardPics.map(
-          img => {return( <Card img={img} /> )}
-        )} */}
         <Card cardPics={this.state.cardPics} />
       </div>
     );
