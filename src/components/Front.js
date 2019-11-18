@@ -8,7 +8,6 @@ class Front extends Component {
     }
     render() { 
         return (
-            // <h1>Front</h1>
             <div key="front">
                 This is the front of the card.
                 <button onClick={this.props.handleClick}>Click to flip</button>
