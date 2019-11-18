@@ -14,9 +14,9 @@ class Back extends Component {
         return (
             <div key="back">
                 {console.log("------------------", this.props)}
-                <img className="cardPics" src={this.props.cardPic.cardPics[this.randomNum()]} alt="Bull"/>
-                This is the back of the card.
-                <button onClick={this.props.handleClick}>Click to flip</button>
+                <button onClick={this.props.handleClick}>
+                    <img className="cardPics" src={this.props.cardPic.cardPics[this.randomNum()]} alt="Bull"/>
+                </button>
             </div>
         );
     }
