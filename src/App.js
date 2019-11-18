@@ -16,6 +16,7 @@ class App extends Component {
     while(cardPics.length > 0){
       randNum = Math.floor(Math.random()*cardPics.length)
       randArr.push(cardPics[randNum].location);
+      cardPics[randNum].num += 1;
       if(cardPics[randNum].num==2){
         cardPics.splice(randNum, 1)
       }
@@ -34,8 +35,6 @@ class App extends Component {
         {/* {this.state.cardPics.map(
           img => {return( <Card img={img} /> )}
         )} */}
-        <Card cardPics={this.state.cardPics} />
-        <Card cardPics={this.state.cardPics} />
         <Card cardPics={this.state.cardPics} />
       </div>
     );
