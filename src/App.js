@@ -18,6 +18,7 @@ class App extends Component {
       turnsTaken: 0
       // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
+    this.addTurn = this.addTurn.bind(this);
   }
 
   randomisePics (cardPics) {
@@ -34,10 +35,9 @@ class App extends Component {
     return randArr;
   }
 
-  // addTurn(turn){
-  //   turn += 1;
-  //   this.setState({turnsTaken: turn});
-  // }
+  addTurn(){this.setState(state => 
+    ({turnsTaken: state.turnsTaken + 1})
+  )}
 
   // componentDidMount() {
   //   this.randomisePics(this.state.cardPics);
@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         <Score turnsTaken={this.state.turnsTaken}/>
-        <Board cardPics={randArrs} />
+        <Board cardPics={randArrs} addTurn={this.addTurn}/>
       </div>
     );
   }

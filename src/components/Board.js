@@ -30,7 +30,7 @@ class Board extends Component {
     render() { 
         return ( 
             <div className="board">
-                {this.props.cardPics.map(pic => <Card cardPic={pic} incCount={this.incCount} />)}
+                {this.props.cardPics.map(pic => <Card cardPic={pic} incCount={this.incCount} addTurn={this.props.addTurn}/>)}
             </div>
         );
     }

@@ -21,6 +21,7 @@ export default class Card extends Component {
       console.log("FLIPPED STATE........", this.state.isFlipped)
       if(this.state.isFlipped===false){
         this.props.incCount(this.props.cardPic);
+        this.props.addTurn();
       }
 
     }
