@@ -29,7 +29,7 @@ export default class Card extends Component {
         <div>
           <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
             <Front handleClick={this.handleClick}/>
-            <Back handleClick={this.handleClick} cardPic={this.props.cardPics}/>
+            <Back handleClick={this.handleClick} cardPic={this.props.cardPic}/>
           </ReactCardFlip>
 {/* 
           <button className="square">

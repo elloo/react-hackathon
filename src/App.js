@@ -7,8 +7,15 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      // cardPics: ["../images/bull.png", "../images/temple.png", "../images/bahai.png", "../images/elephant.png", "../images/hindu.png", "../images/hindu2.png", "../images/mandolin.png", "../images/map.png"]
-      cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
+      cardPics: [ {"location": "../images/bull.png", num: 0}, 
+                  {"location": "../images/temple.png", num: 0}, 
+                  {"location": "../images/bahai.png", num: 0}, 
+                  {"location": "../images/elephant.png", num: 0}, 
+                  {"location": "../images/hindu.png", num: 0}, 
+                  {"location": "../images/hindu2.png", num: 0}, 
+                  {"location": "../images/mandolin.png", num: 0}, 
+                  {"location": "../images/map.png", num: 0}]
+      // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
   }
 
@@ -21,18 +28,20 @@ class App extends Component {
       if(cardPics[randNum].num==2){
         cardPics.splice(randNum, 1)
       }
+      console.log(randArr);
     }
-    this.setState({cardPics: [...randArr]});
+    return randArr;
   }
 
-  componentDidMount() {
-    this.randomisePics(this.state.cardPics);
-  }
+  // componentDidMount() {
+  //   this.randomisePics(this.state.cardPics);
+  // }
 
   render(){
+      const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
-        <Board cardPics={this.state.cardPics} />
+        <Board cardPics={randArrs} />
       </div>
     );
   }
