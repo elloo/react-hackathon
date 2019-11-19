@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Card from "./components/Card";
+// import Card from "./components/Card";
+import Board from "./components/Board";
 
 class App extends Component {
   constructor(){
@@ -27,18 +28,20 @@ class App extends Component {
       if(cardPics[randNum].num==2){
         cardPics.splice(randNum, 1)
       }
+      console.log(randArr);
     }
-    this.setState({cardPics: [...randArr]});
+    return randArr;
   }
 
-  componentDidMount() {
-    this.randomisePics(this.state.cardPics);
-  }
+  // componentDidMount() {
+  //   this.randomisePics(this.state.cardPics);
+  // }
 
   render(){
+      const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
-        <Card cardPics={this.state.cardPics} />
+        <Board cardPics={randArrs} />
       </div>
     );
   }
