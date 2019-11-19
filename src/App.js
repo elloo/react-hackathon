@@ -35,10 +35,10 @@ class App extends Component {
     return randArr;
   }
 
-  addTurn(turn){
-    turn++;
-    this.setState({turnsTaken: turn});
-  }
+  // addTurn(turn){
+  //   turn += 1;
+  //   this.setState({turnsTaken: turn});
+  // }
 
   // componentDidMount() {
   //   this.randomisePics(this.state.cardPics);
@@ -48,7 +48,7 @@ class App extends Component {
       const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
-        <Score turnsTaken={this.state.turnsTaken} addTurn={this.addTurn}/>
+        <Score turnsTaken={this.state.turnsTaken}/>
         <Board cardPics={randArrs} />
       </div>
     );
