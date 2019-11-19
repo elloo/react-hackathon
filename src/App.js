@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Score from "./components/Score";
 import Board from "./components/Board";
+import update from 'immutability-helper';
 
 class App extends Component {
   constructor(){
@@ -30,8 +31,10 @@ class App extends Component {
 
   replaceCard (card) {
     // let cardPics = this.state.cardPics
-
-    console.log("INDEX: ", card, this.state.cardPics)
+    let correctIndex = this.state.randArr.findIndex(loc => card === loc);
+    let updatedArr = update(this.state.randArr, {[correctIndex]: {$set: "../images/tick.png"}})
+    this.setState({randArr: updatedArr})
+    console.log("INDEX: ", card, this.state.randArr);
   }
 
   randomisePics (cardPics) {
@@ -44,18 +47,12 @@ class App extends Component {
         cardPics.splice(randNum, 1)
       }
     }
-    console.log("RANDARRCOPY: ", randArrCopy);
-    this.setState({randArr: randArrCopy});
-    console.log("RANDARR: ", this.state.randArr);
+    this.setState({randArr: randArrCopy})
   }
 
   addTurn(){this.setState(state => 
     ({turnsTaken: state.turnsTaken + 1})
   )}
-
-  // componentDidMount() {
-  //   this.randomisePics(this.state.cardPics);
-  // }
 
   render(){
     return (
