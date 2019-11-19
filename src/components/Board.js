@@ -19,9 +19,14 @@ class Board extends Component {
         // }))
         let comparisonArr = this.state.comparisonArr;
         comparisonArr.push(card);
-        if (comparisonArr[0] === comparisonArr[1]) {this.setState({areSame: true})};
-        console.log(this.state.areSame, comparisonArr[0], comparisonArr[1]);
-        if (this.state.areSame) {this.props.replaceCard(card)}
+        
+        if (comparisonArr[0] === comparisonArr[1]) {
+            this.setState({areSame: true}, () => {
+                this.props.replaceCard(card);
+                this.setState({areSame: false});
+            })
+        };
+
         if (comparisonArr.length > 1){this.setState({comparisonArr: []})} ;
         
     }
