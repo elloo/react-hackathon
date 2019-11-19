@@ -4,14 +4,14 @@ class Score extends Component {
     constructor(props){
         super(props)
         this.state = { 
-            // turnsTaken: 0
         }
     }
 
     render() { 
+        let turns = Math.floor(this.props.turnsTaken / 2)
         return ( 
             <div className="Score">
-                <h2>Turns: {this.props.turnsTaken}</h2>
+                <h2>Turns: {turns}</h2>
             </div>
         );
     }
