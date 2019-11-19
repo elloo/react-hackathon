@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Card from "./Card";
+import MakeCard from "./MakeCard";
 
 class Board extends Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class Board extends Component {
     render() { 
         return ( 
             <div className="board">
-                {this.props.cardPics.map(pic => <Card cardPic={pic} incCount={this.incCount} addTurn={this.props.addTurn}/>)}
+                {this.props.cardPics.map(pic => <MakeCard cardPic={pic} incCount={this.incCount} addTurn={this.props.addTurn}/>)}
             </div>
         );
     }
