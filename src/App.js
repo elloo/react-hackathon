@@ -25,17 +25,13 @@ class App extends Component {
       randNum = Math.floor(Math.random()*cardPics.length)
       randArr.push(cardPics[randNum].location);
       cardPics[randNum].num += 1;
-      if(cardPics[randNum].num==2){
+      if(cardPics[randNum].num===2){
         cardPics.splice(randNum, 1)
       }
       console.log(randArr);
     }
     return randArr;
   }
-
-  // componentDidMount() {
-  //   this.randomisePics(this.state.cardPics);
-  // }
 
   render(){
       const randArrs = this.randomisePics(this.state.cardPics);
