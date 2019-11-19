@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Card from "./components/Card";
+// import Card from "./components/Card";
+import Board from "./components/Board";
 
 class App extends Component {
   constructor(){
@@ -31,7 +32,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Card cardPics={this.state.cardPics} />
+        <Board cardPics={this.state.cardPics} />
       </div>
     );
   }
