@@ -15,24 +15,38 @@ class App extends Component {
                   {"location": "../images/hindu2.png", num: 0}, 
                   {"location": "../images/mandolin.png", num: 0}, 
                   {"location": "../images/map.png", num: 0}],
+      randArr: [],
       turnsTaken: 0
       // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
     this.addTurn = this.addTurn.bind(this);
+    this.replaceCard = this.replaceCard.bind(this);
+    this.randomisePics = this.randomisePics.bind(this);
+  }
+
+  componentDidMount(){
+    this.randomisePics(this.state.cardPics)
+  }
+
+  replaceCard (card) {
+    // let cardPics = this.state.cardPics
+
+    console.log("INDEX: ", card, this.state.cardPics)
   }
 
   randomisePics (cardPics) {
-    let randArr=[], randNum
+    let randArrCopy = [...this.state.randArr]
     while(cardPics.length > 0){
-      randNum = Math.floor(Math.random()*cardPics.length)
-      randArr.push(cardPics[randNum].location);
+      let randNum = Math.floor(Math.random()*cardPics.length)
+      randArrCopy.push(cardPics[randNum].location);
       cardPics[randNum].num += 1;
       if(cardPics[randNum].num===2){
         cardPics.splice(randNum, 1)
       }
-      console.log(randArr);
     }
-    return randArr;
+    console.log("RANDARRCOPY: ", randArrCopy);
+    this.setState({randArr: randArrCopy});
+    console.log("RANDARR: ", this.state.randArr);
   }
 
   addTurn(){this.setState(state => 
@@ -44,11 +58,10 @@ class App extends Component {
   // }
 
   render(){
-      const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
         <Score turnsTaken={this.state.turnsTaken}/>
-        <Board cardPics={randArrs} addTurn={this.addTurn}/>
+        <Board cardPics={this.state.randArr} addTurn={this.addTurn} replaceCard={this.replaceCard}/>
       </div>
     );
   }

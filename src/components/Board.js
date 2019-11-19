@@ -5,27 +5,33 @@ class Board extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            card: Array(16).fill(null),
-            counter: 0,
-            areSame: []
+            // card: Array(16).fill(null),
+            // counter: 0,
+            comparisonArr: [],
+            areSame: false
          }
         this.incCount = this.incCount.bind(this) 
     }
 
     incCount(card){
-        this.setState((state) =>({
-            counter: state.counter + 1
-        }))
-        this.state.areSame.push(card)
-        console.log("********SAME******",this.state.areSame)
+        // this.setState((state) =>({
+        //     counter: state.counter + 1
+        // }))
+        let comparisonArr = this.state.comparisonArr;
+        comparisonArr.push(card);
+        if (comparisonArr[0] === comparisonArr[1]) {this.setState({areSame: true})};
+        console.log(this.state.areSame, comparisonArr[0], comparisonArr[1]);
+        if (this.state.areSame) {this.props.replaceCard(card)}
+        if (comparisonArr.length > 1){this.setState({comparisonArr: []})} ;
+        
     }
 
-    compareCards(){
-        console.log("COMPARE CARDS")
+    // compareCards(){
+    //     console.log("COMPARE CARDS")
         
-        // this.setState({this.incCount});
-        // this.setState({counter: this.state.counter + 1})
-    }
+    //     // this.setState({this.incCount});
+    //     // this.setState({counter: this.state.counter + 1})
+    // }
 
     render() { 
         return ( 
