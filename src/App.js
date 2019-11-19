@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-// import Card from "./components/Card";
+import Card from "./components/Card";
+import Score from "./components/Score";
 import Board from "./components/Board";
 
 class App extends Component {
@@ -14,7 +15,8 @@ class App extends Component {
                   {"location": "../images/hindu.png", num: 0}, 
                   {"location": "../images/hindu2.png", num: 0}, 
                   {"location": "../images/mandolin.png", num: 0}, 
-                  {"location": "../images/map.png", num: 0}]
+                  {"location": "../images/map.png", num: 0}],
+      turnsTaken: 0
       // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
   }
@@ -33,10 +35,20 @@ class App extends Component {
     return randArr;
   }
 
+  // addTurn(turn){
+  //   turn += 1;
+  //   this.setState({turnsTaken: turn});
+  // }
+
+  // componentDidMount() {
+  //   this.randomisePics(this.state.cardPics);
+  // }
+
   render(){
       const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
+        <Score turnsTaken={this.state.turnsTaken}/>
         <Board cardPics={randArrs} />
       </div>
     );
