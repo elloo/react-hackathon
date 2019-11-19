@@ -32,8 +32,8 @@ class App extends Component {
   replaceCard (card) {
     // let cardPics = this.state.cardPics
     let correctIndex = this.state.randArr.map((loc, index) => card === loc ? index : "").filter(String);
-    let updatedArr =  update(this.state.randArr, {[correctIndex[0]]: {$set: "../images/tick.png"}});
-    updatedArr[correctIndex[1]] = "../images/tick.png";
+    let updatedArr =  update(this.state.randArr, {[correctIndex[0]]: {$set: "../images/tick2.png"}});
+    updatedArr[correctIndex[1]] = "../images/tick2.png";
     this.setState({randArr: updatedArr})
     console.log("INDEX: ", correctIndex);
   }
