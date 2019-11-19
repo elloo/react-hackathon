@@ -11,7 +11,7 @@ class Score extends Component {
     render() { 
         return ( 
             <div className="Score">
-                <h2>{this.props.turnsTaken}</h2>
+                <h2>Turns: {this.props.turnsTaken}</h2>
             </div>
         );
     }

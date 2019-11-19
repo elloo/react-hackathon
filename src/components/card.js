@@ -19,7 +19,7 @@ export default class Card extends Component {
       e.preventDefault();
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
       console.log("FLIPPED STATE........", this.state.isFlipped)
-      if(this.state.isFlipped==false){
+      if(this.state.isFlipped===false){
         this.props.incCount(this.props.cardPic);
       }
 
