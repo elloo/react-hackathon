@@ -3,6 +3,7 @@ import React, {Component} from "react";
 class Back extends Component {
     constructor(props) {
         super(props);
+        console.log("*********", props);
         this.state = {  }
     }
 
@@ -15,7 +16,7 @@ class Back extends Component {
             <div key="back">
                 {console.log("------------------", this.props)}
                 <button onClick={this.props.handleClick}>
-                    <img className="cardPics" src={this.props.cardPic.cardPics[this.randomNum()]} alt="Bull"/>
+                    <img className="cardPics" src={this.props.cardPic} alt="Bull"/>
                 </button>
             </div>
         );

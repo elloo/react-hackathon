@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Card from "./components/Card";
 import Score from "./components/Score";
+import Board from "./components/Board";
 
 class App extends Component {
   constructor(){
@@ -29,8 +30,9 @@ class App extends Component {
       if(cardPics[randNum].num===2){
         cardPics.splice(randNum, 1)
       }
+      console.log(randArr);
     }
-    this.setState({cardPics: [...randArr]});
+    return randArr;
   }
 
   addTurn(turn){
@@ -38,15 +40,16 @@ class App extends Component {
     this.setState({turnsTaken: turn});
   }
 
-  componentDidMount() {
-    this.randomisePics(this.state.cardPics);
-  }
+  // componentDidMount() {
+  //   this.randomisePics(this.state.cardPics);
+  // }
 
   render(){
+      const randArrs = this.randomisePics(this.state.cardPics);
     return (
       <div className="App">
         <Score turnsTaken={this.state.turnsTaken} addTurn={this.addTurn}/>
-        <Card cardPics={this.state.cardPics} />
+        <Board cardPics={randArrs} />
       </div>
     );
   }
