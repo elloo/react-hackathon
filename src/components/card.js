@@ -7,22 +7,24 @@ import Back from "./Back";
 export default class Card extends Component {
     constructor(props) {
       super(props);
+      console.log("CARD PROPS-------", props)
         this.state = {
-        isFlipped: false,
+        isFlipped: false
       };
       this.handleClick = this.handleClick.bind(this);
     }
+
  
     handleClick (e) {
       e.preventDefault();
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+      console.log("FLIPPED STATE........", this.state.isFlipped)
+      if(this.state.isFlipped==false){
+        this.props.incCount(this.props.cardPic);
+      }
+
     }
-   
-    // componentDidMount(){
-    //   randomNum = () => {
-    //     return Math.floor(Math.random() * 2)
-    //   }
-    // }
+
 
     render() {
       return (
@@ -31,10 +33,6 @@ export default class Card extends Component {
             <Front handleClick={this.handleClick}/>
             <Back handleClick={this.handleClick} cardPic={this.props.cardPic}/>
           </ReactCardFlip>
-{/* 
-          <button className="square">
-             {this.props.value}
-          </button> */}
         </div>
       )
     }

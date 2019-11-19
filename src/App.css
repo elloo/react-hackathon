@@ -26,8 +26,16 @@ h1{
 }
 
 .cardPics{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+}
+
+.board{
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 450px;
+  align-items: center;
 }
 
 .Score {
