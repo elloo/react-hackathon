@@ -9,8 +9,8 @@ class Score extends Component {
     render() { 
         return ( 
             <div>
-                <button onClick={this.props.addPoint(this.props.points)}>TEST</button>
-                <h1>{this.props.points}</h1>
+                <button onClick={this.props.addTurn(this.props.turnsTaken)}>TEST</button>
+                <h1>{this.props.turnsTaken}</h1>
             </div>
         );
     }

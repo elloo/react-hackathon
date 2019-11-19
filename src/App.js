@@ -15,7 +15,7 @@ class App extends Component {
                   {"location": "../images/hindu2.png", num: 0}, 
                   {"location": "../images/mandolin.png", num: 0}, 
                   {"location": "../images/map.png", num: 0}],
-      points: 0
+      turnsTaken: 0
       // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
   }
@@ -33,9 +33,9 @@ class App extends Component {
     this.setState({cardPics: [...randArr]});
   }
 
-  addPoint(score){
-    score++;
-    this.setState({points: score});
+  addTurn(turn){
+    turn++;
+    this.setState({turnsTaken: turn});
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Score points={this.state.points} addPoint={this.addPoint}/>
+        <Score turnsTaken={this.state.turnsTaken} addTurn={this.addTurn}/>
         <Card cardPics={this.state.cardPics} />
       </div>
     );
