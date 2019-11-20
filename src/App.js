@@ -29,8 +29,8 @@ class App extends Component {
     this.randomisePics(this.state.cardPics)
   }
 
+  //changes matching cards to a tick
   replaceCard (card) {
-    // let cardPics = this.state.cardPics
     let correctIndex = this.state.randArr.map((loc, index) => card === loc ? index : "").filter(String);
     let updatedArr =  update(this.state.randArr, {[correctIndex[0]]: {$set: "../images/tick2.png"}});
     updatedArr[correctIndex[1]] = "../images/tick2.png";
@@ -38,6 +38,7 @@ class App extends Component {
     console.log("INDEX: ", correctIndex);
   }
 
+  //makes sure each game is different by messing up the aray
   randomisePics (cardPics) {
     let randArrCopy = [...this.state.randArr]
     while(cardPics.length > 0){
@@ -51,6 +52,7 @@ class App extends Component {
     this.setState({randArr: randArrCopy})
   }
 
+  //keeps count of how many turns you have taken
   addTurn(){this.setState(state => 
     ({turnsTaken: state.turnsTaken + 1})
   )}
