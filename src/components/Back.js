@@ -7,11 +7,6 @@ class Back extends Component {
          }
     }
 
-    randomNum = () => {
-        return Math.floor(Math.random() * 9)
-    }
-
-
     render() { 
         return (
             <div key="back">
