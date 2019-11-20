@@ -13,28 +13,29 @@ export default class MakeCard extends Component {
       this.handleClick = this.handleClick.bind(this);
     }
 
-    //flips card on click
-    handleClick (e) {
+    handleClick(e){
       e.preventDefault();
-      console.log("CARD PROPS-------**", this.props)
-      if(this.props.comparisonArr.length===1 && this.props.comparisonArr[0]!==this.props.comparisonArr[1]){
-        console.log("BLIP blip")
-      
-    }
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+      setTimeout(
+        function(){
+          this.setState(prevState => ({ isFlipped: !prevState.isFlipped }))
+        }.bind(this), 
+      1000)
       if(this.state.isFlipped===false){
         this.props.incCount(this.props.cardPic);
         this.props.addTurn();
       }
+      if (this.props.comparisonArr[0] === this.props.comparisonArr[1]){
+        clearTimeout();
+      }
     }
-
 
     render() {
       return (
         <div>
           <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-            <Front handleClick={this.handleClick} />
-            <Back handleClick={this.handleClick} cardPic={this.props.cardPic}/>
+            <Front handleClick={this.handleClick} frontImg={this.props.frontImg}/>
+            <Back cardPic={this.props.cardPic}/>
           </ReactCardFlip>
         </div>
       )

@@ -15,7 +15,7 @@ class Back extends Component {
     render() { 
         return (
             <div key="back">
-                <button onClick={this.props.handleClick}>
+                <button>
                     <img className="cardPics" src={this.props.cardPic} alt="Bull"/>
                 </button>
             </div>

@@ -5,7 +5,6 @@ class Front extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
         }
     }
 
@@ -14,7 +13,7 @@ class Front extends Component {
         return (
             <div key="front">
                 <button onClick={this.props.handleClick} >
-                    <img className="cardPics" src="../images/flag.png" alt="BollyWood"/>
+                    <img className="cardPics" src={this.props.frontImg} alt="BollyWood"/>
                 </button>
             </div>
         );

@@ -36,6 +36,7 @@ class Board extends Component {
                                                 incCount={this.incCount} 
                                                 addTurn={this.props.addTurn}
                                                 comparisonArr={this.state.comparisonArr}
+                                                frontImg={this.props.frontImg}
                                                 />)}
             </div>
         );

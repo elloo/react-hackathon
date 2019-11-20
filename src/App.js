@@ -17,10 +17,12 @@ class App extends Component {
                   {"location": "../images/mandolin.png", num: 0}, 
                   {"location": "../images/map.png", num: 0}],
       randArr: [],
-      turnsTaken: 0
+      turnsTaken: 0,
+      frontImg: "../images/flag.png"
       // cardPics: [{"location": "../images/bull.png", num: 0}, {"location": "../images/temple.png", num: 0}, {"location": "../images/bahai.png", num: 0}]
     }
     this.addTurn = this.addTurn.bind(this);
+    this.allCorrect = this.allCorrect.bind(this);
     this.replaceCard = this.replaceCard.bind(this);
     this.randomisePics = this.randomisePics.bind(this);
   }
@@ -34,8 +36,15 @@ class App extends Component {
     let correctIndex = this.state.randArr.map((loc, index) => card === loc ? index : "").filter(String);
     let updatedArr =  update(this.state.randArr, {[correctIndex[0]]: {$set: "../images/tick2.png"}});
     updatedArr[correctIndex[1]] = "../images/tick2.png";
-    this.setState({randArr: updatedArr})
-    console.log("INDEX: ", correctIndex);
+    this.setState({randArr: updatedArr});
+    this.allCorrect(this.state.randArr);
+  }
+
+  allCorrect(randArr){
+    let checkedArr = randArr.filter(loc => loc === "../images/tick2.png")
+    if (checkedArr.length === 16){
+      this.setState({frontImg: "../images/tick2.png"})
+    }
   }
 
   //makes sure each game is different by messing up the aray
@@ -61,7 +70,7 @@ class App extends Component {
     return (
       <div className="App">
         <Score turnsTaken={this.state.turnsTaken}/>
-        <Board cardPics={this.state.randArr} addTurn={this.addTurn} replaceCard={this.replaceCard}/>
+        <Board cardPics={this.state.randArr} addTurn={this.addTurn} replaceCard={this.replaceCard} frontImg={this.state.frontImg}/>
       </div>
     );
   }
